@@ -35,52 +35,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => CreateAccount3Widget(),
+      errorBuilder: (context, state) => SignUpWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => CreateAccount3Widget(),
+          builder: (context, _) => SignUpWidget(),
         ),
         FFRoute(
-          name: 'CreateAccount3',
-          path: '/createAccount3',
-          builder: (context, params) => CreateAccount3Widget(),
+          name: 'SignUp',
+          path: '/signUp',
+          builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
-          name: 'Login3',
-          path: '/login3',
-          builder: (context, params) => Login3Widget(),
+          name: 'SignIn',
+          path: '/signIn',
+          builder: (context, params) => SignInWidget(),
         ),
         FFRoute(
-          name: 'Details35SupportForm',
-          path: '/details35SupportForm',
-          builder: (context, params) => Details35SupportFormWidget(),
-        ),
-        FFRoute(
-          name: 'Dashboard5',
-          path: '/dashboard5',
-          builder: (context, params) => Dashboard5Widget(),
-        ),
-        FFRoute(
-          name: 'Details12SocialPost',
-          path: '/details12SocialPost',
-          builder: (context, params) => Details12SocialPostWidget(),
-        ),
-        FFRoute(
-          name: 'Home21HighlightedPosts',
-          path: '/home21HighlightedPosts',
-          builder: (context, params) => Home21HighlightedPostsWidget(),
-        ),
-        FFRoute(
-          name: 'Home15Travel',
-          path: '/home15Travel',
-          builder: (context, params) => Home15TravelWidget(),
-        ),
-        FFRoute(
-          name: 'Profile16SimpleProfile',
-          path: '/profile16SimpleProfile',
-          builder: (context, params) => Profile16SimpleProfileWidget(),
+          name: 'SupportTicket',
+          path: '/supportTicket',
+          builder: (context, params) => SupportTicketWidget(),
         ),
         FFRoute(
           name: 'Home',
@@ -89,11 +64,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
         ),
         FFRoute(
-          name: 'Passport',
-          path: '/passport',
+          name: 'InvestorGuides',
+          path: '/investorGuides',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Passport')
-              : PassportWidget(),
+              ? NavBarPage(initialPage: 'InvestorGuides')
+              : InvestorGuidesWidget(),
         ),
         FFRoute(
           name: 'Metrics',
@@ -101,23 +76,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'Metrics')
               : MetricsWidget(),
-        ),
-        FFRoute(
-          name: 'Home09Dashboard',
-          path: '/home09Dashboard',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'Home09Dashboard')
-              : Home09DashboardWidget(),
-        ),
-        FFRoute(
-          name: 'Home19PropertyAppbookingapp',
-          path: '/home19PropertyAppbookingapp',
-          builder: (context, params) => Home19PropertyAppbookingappWidget(),
-        ),
-        FFRoute(
-          name: 'Home18Travel',
-          path: '/home18Travel',
-          builder: (context, params) => Home18TravelWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -6,25 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'passport_model.dart';
-export 'passport_model.dart';
+import 'investor_guides_model.dart';
+export 'investor_guides_model.dart';
 
-class PassportWidget extends StatefulWidget {
-  const PassportWidget({Key? key}) : super(key: key);
+class InvestorGuidesWidget extends StatefulWidget {
+  const InvestorGuidesWidget({Key? key}) : super(key: key);
 
   @override
-  _PassportWidgetState createState() => _PassportWidgetState();
+  _InvestorGuidesWidgetState createState() => _InvestorGuidesWidgetState();
 }
 
-class _PassportWidgetState extends State<PassportWidget> {
-  late PassportModel _model;
+class _InvestorGuidesWidgetState extends State<InvestorGuidesWidget> {
+  late InvestorGuidesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PassportModel());
+    _model = createModel(context, () => InvestorGuidesModel());
 
     _model.textController ??= TextEditingController();
   }

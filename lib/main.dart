@@ -98,9 +98,8 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'Passport': PassportWidget(),
+      'InvestorGuides': InvestorGuidesWidget(),
       'Metrics': MetricsWidget(),
-      'Home09Dashboard': Home09DashboardWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -146,18 +145,6 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: 'Home',
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.dashboard_outlined,
-                size: 24.0,
-              ),
-              activeIcon: Icon(
-                Icons.dashboard_rounded,
-                size: 32.0,
-              ),
-              label: '__',
               tooltip: '',
             )
           ],

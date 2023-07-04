@@ -9,20 +9,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'details35_support_form_model.dart';
-export 'details35_support_form_model.dart';
+import 'support_ticket_model.dart';
+export 'support_ticket_model.dart';
 
-class Details35SupportFormWidget extends StatefulWidget {
-  const Details35SupportFormWidget({Key? key}) : super(key: key);
+class SupportTicketWidget extends StatefulWidget {
+  const SupportTicketWidget({Key? key}) : super(key: key);
 
   @override
-  _Details35SupportFormWidgetState createState() =>
-      _Details35SupportFormWidgetState();
+  _SupportTicketWidgetState createState() => _SupportTicketWidgetState();
 }
 
-class _Details35SupportFormWidgetState extends State<Details35SupportFormWidget>
+class _SupportTicketWidgetState extends State<SupportTicketWidget>
     with TickerProviderStateMixin {
-  late Details35SupportFormModel _model;
+  late SupportTicketModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -108,7 +107,7 @@ class _Details35SupportFormWidgetState extends State<Details35SupportFormWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Details35SupportFormModel());
+    _model = createModel(context, () => SupportTicketModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();

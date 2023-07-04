@@ -10,19 +10,19 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_account3_model.dart';
-export 'create_account3_model.dart';
+import 'sign_up_model.dart';
+export 'sign_up_model.dart';
 
-class CreateAccount3Widget extends StatefulWidget {
-  const CreateAccount3Widget({Key? key}) : super(key: key);
+class SignUpWidget extends StatefulWidget {
+  const SignUpWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateAccount3WidgetState createState() => _CreateAccount3WidgetState();
+  _SignUpWidgetState createState() => _SignUpWidgetState();
 }
 
-class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
+class _SignUpWidgetState extends State<SignUpWidget>
     with TickerProviderStateMixin {
-  late CreateAccount3Model _model;
+  late SignUpModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -66,7 +66,7 @@ class _CreateAccount3WidgetState extends State<CreateAccount3Widget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateAccount3Model());
+    _model = createModel(context, () => SignUpModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
