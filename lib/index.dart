@@ -1,7 +1,10 @@
 // Export pages
-export '/sign_up/sign_up_widget.dart' show SignUpWidget;
-export '/sign_in/sign_in_widget.dart' show SignInWidget;
-export '/support_ticket/support_ticket_widget.dart' show SupportTicketWidget;
-export '/home/home_widget.dart' show HomeWidget;
-export '/investor_guides/investor_guides_widget.dart' show InvestorGuidesWidget;
-export '/metrics/metrics_widget.dart' show MetricsWidget;
+export '/pages/guides/guides_widget.dart' show GuidesWidget;
+export '/pages/discover/discover_widget.dart' show DiscoverWidget;
+export '/pages/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/pages/favorites/favorites_widget.dart' show FavoritesWidget;
+export '/pages/chats/chats_widget.dart' show ChatsWidget;
+export '/onboard/signup/signup_widget.dart' show SignupWidget;
+export '/onboard/login/login_widget.dart' show LoginWidget;
+export '/landing/home/home_widget.dart' show HomeWidget;
+export '/onboard/login_copy/login_copy_widget.dart' show LoginCopyWidget;

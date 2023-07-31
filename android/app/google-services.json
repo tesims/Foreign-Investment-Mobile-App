@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "514880446663",
+    "project_id": "glotek-20d1d",
+    "storage_bucket": "glotek-20d1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514880446663:android:676ba32ada8c878bb89ee2",
+        "android_client_info": {
+          "package_name": "com.mycompany.glotek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514880446663-3cm6nogumc8pujtk9hrjcbip36et7mbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.glotek",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "514880446663-anup5p0sb6i6c6tj6n80sjihr9e6pnv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsly-HqsaAcSjWdE1Ce8CVnfDJkb4d-Gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514880446663-anup5p0sb6i6c6tj6n80sjihr9e6pnv8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "514880446663-jmur7iakai5gt50sq66plpqkcpvjcvp9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.glotek"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
