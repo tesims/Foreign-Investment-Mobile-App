@@ -90,11 +90,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'guides',
           path: '/guides',
+          requireAuth: true,
           builder: (context, params) => GuidesWidget(),
         ),
         FFRoute(
           name: 'discover',
           path: '/discover',
+          requireAuth: true,
           builder: (context, params) => DiscoverWidget(
             code: params.getParam('code', ParamType.String),
           ),
@@ -102,16 +104,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'dashboard',
           path: '/dashboard',
+          requireAuth: true,
           builder: (context, params) => DashboardWidget(),
         ),
         FFRoute(
           name: 'favorites',
           path: '/favorites',
+          requireAuth: true,
           builder: (context, params) => FavoritesWidget(),
         ),
         FFRoute(
           name: 'chats',
           path: '/chats',
+          requireAuth: true,
           builder: (context, params) => ChatsWidget(),
         ),
         FFRoute(
@@ -132,9 +137,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'loginCopy',
-          path: '/logincopy',
-          builder: (context, params) => LoginCopyWidget(),
+          name: 'support',
+          path: '/help-center',
+          builder: (context, params) => SupportWidget(),
+        ),
+        FFRoute(
+          name: 'account',
+          path: '/my-account',
+          requireAuth: true,
+          builder: (context, params) => AccountWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

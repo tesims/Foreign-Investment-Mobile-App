@@ -507,64 +507,83 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                           thickness: 2.0,
                           color: FlutterFlowTheme.of(context).lineColor,
                         ),
-                        Container(
-                          width: double.infinity,
-                          height: 65.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 12.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50.0),
-                                  child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
-                                    fadeOutDuration:
-                                        Duration(milliseconds: 500),
-                                    imageUrl: widget.userPicture,
-                                    width: 44.0,
-                                    height: 44.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'account',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
                                 ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          widget.userName,
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .override(
-                                                fontFamily: 'Readex Pro',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                              ),
-                                        ),
-                                        Text(
-                                          widget.userEmail,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                        ),
-                                      ],
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 65.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 12.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          Duration(milliseconds: 500),
+                                      imageUrl: widget.userPicture,
+                                      width: 44.0,
+                                      height: 44.0,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            widget.userName,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                ),
+                                          ),
+                                          Text(
+                                            widget.userEmail,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -603,8 +622,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                           color: FlutterFlowTheme.of(context).primaryText,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          await launchURL('https://glotek.app/help-center');
                         },
                       ),
                       FlutterFlowIconButton(

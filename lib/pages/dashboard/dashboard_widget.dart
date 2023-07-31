@@ -40,7 +40,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'dashboard',
+        title: 'Dashboard | Glotek',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

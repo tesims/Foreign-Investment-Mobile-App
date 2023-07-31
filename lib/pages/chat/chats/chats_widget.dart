@@ -40,7 +40,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'chats',
+        title: 'Chats | Glotek',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

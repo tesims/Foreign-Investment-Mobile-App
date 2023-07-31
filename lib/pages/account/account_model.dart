@@ -1,43 +1,46 @@
-import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/gestures.dart';
+import '/flutter_flow/upload_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LoginCopyModel extends FlutterFlowModel {
+class AccountModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+  // Model for sideNav component.
+  late SideNavModel sideNavModel;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
+
+  // State field(s) for fullName widget.
+  TextEditingController? fullNameController;
+  String? Function(BuildContext, String?)? fullNameControllerValidator;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;
   String? Function(BuildContext, String?)? emailAddressControllerValidator;
-  // State field(s) for password widget.
-  TextEditingController? passwordController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
-  // Stores action output result for [Backend Call - API (Login)] action in Button widget.
-  ApiCallResponse? authToken;
-  // Stores action output result for [Backend Call - API (google init)] action in Button widget.
-  ApiCallResponse? apiResultzpg;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    passwordVisibility = false;
+    sideNavModel = createModel(context, () => SideNavModel());
   }
 
   void dispose() {
     unfocusNode.dispose();
+    sideNavModel.dispose();
+    fullNameController?.dispose();
     emailAddressController?.dispose();
-    passwordController?.dispose();
   }
 
   /// Action blocks are added here.

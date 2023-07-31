@@ -595,7 +595,19 @@ class _SignupWidgetState extends State<SignupWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context.pushNamed('login');
+                                            context.pushNamed(
+                                              'login',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
                                           },
                                           child: RichText(
                                             text: TextSpan(

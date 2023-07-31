@@ -117,7 +117,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 children: [
                                   FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed('login');
+                                      context.pushNamed(
+                                        'login',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration: Duration(milliseconds: 0),
+                                          ),
+                                        },
+                                      );
                                     },
                                     text: 'Log in',
                                     options: FFButtonOptions(
@@ -148,8 +158,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          'signup',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
                                       },
                                       text: 'Start Free Trial',
                                       options: FFButtonOptions(

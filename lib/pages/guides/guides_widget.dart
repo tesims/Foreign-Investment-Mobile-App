@@ -40,7 +40,7 @@ class _GuidesWidgetState extends State<GuidesWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'guides',
+        title: 'Guides | Glotek',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

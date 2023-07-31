@@ -40,7 +40,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'favorites',
+        title: 'Favorites | Glotek',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

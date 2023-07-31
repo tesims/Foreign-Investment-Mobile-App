@@ -1,9 +1,7 @@
-import '/backend/api_requests/api_calls.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,22 +30,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
     super.initState();
     _model = createModel(context, () => DiscoverModel());
 
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.apiResultpyq = await GoogleContinueCall.call(
-        code: widget.code,
-      );
-      if ((_model.apiResultpyq?.succeeded ?? true)) {
-        setState(() {
-          FFAppState().authToken = GoogleContinueCall.authToken(
-            (_model.apiResultpyq?.jsonBody ?? ''),
-          ).toString().toString();
-        });
-      } else {
-        context.pushNamed('login');
-      }
-    });
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -63,7 +45,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
     context.watch<FFAppState>();
 
     return Title(
-        title: 'discover',
+        title: 'Discover | Glotek',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
