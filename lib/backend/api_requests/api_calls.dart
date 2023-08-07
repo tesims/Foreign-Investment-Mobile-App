@@ -9,19 +9,17 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class LoginCall {
+class FirebaseAuthCall {
   static Future<ApiCallResponse> call({
-    String? email = '',
-    String? password = '',
+    String? idToken = '',
   }) {
     final body = '''
 {
-  "email": "${email}",
-  "password": "${password}"
+  "id_token": "${idToken}"
 }''';
     return ApiManager.instance.makeApiCall(
-      callName: 'Login',
-      apiUrl: 'https://xn8h-jzwm-odfz.n7c.xano.io/api:JJxCCbQC/auth/login',
+      callName: 'Firebase Auth',
+      apiUrl: 'https://xn8h-jzwm-odfz.n7c.xano.io/api:JJxCCbQC/auth/firebase',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -34,72 +32,25 @@ class LoginCall {
     );
   }
 
-  static dynamic authToken(dynamic response) => getJsonField(
+  static dynamic firebaseid(dynamic response) => getJsonField(
         response,
-        r'''$.authToken''',
-      );
-}
-
-class GoogleInitCall {
-  static Future<ApiCallResponse> call() {
-    return ApiManager.instance.makeApiCall(
-      callName: 'google init',
-      apiUrl:
-          'https://xn8h-jzwm-odfz.n7c.xano.io/api:U0aE1wpF/oauth/google/init',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {
-        'redirect_uri': "https://glotek.app/login",
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-    );
-  }
-
-  static dynamic authURL(dynamic response) => getJsonField(
-        response,
-        r'''$.authUrl''',
-      );
-}
-
-class GoogleContinueCall {
-  static Future<ApiCallResponse> call({
-    String? code = '',
-  }) {
-    return ApiManager.instance.makeApiCall(
-      callName: 'google continue ',
-      apiUrl:
-          'https://xn8h-jzwm-odfz.n7c.xano.io/api:U0aE1wpF/oauth/google/continue',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {
-        'code': code,
-        'redirect_uri': "https://glotek.app/login",
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-    );
-  }
-
-  static dynamic authToken(dynamic response) => getJsonField(
-        response,
-        r'''$.token''',
-      );
-  static dynamic name(dynamic response) => getJsonField(
-        response,
-        r'''$.name''',
+        r'''$.firebase_id''',
       );
   static dynamic email(dynamic response) => getJsonField(
         response,
         r'''$.email''',
       );
+  static dynamic displayname(dynamic response) => getJsonField(
+        response,
+        r'''$.display_name''',
+      );
+  static dynamic profilepicture(dynamic response) => getJsonField(
+        response,
+        r'''$.profile_picture''',
+      );
 }
 
-class AddCrmEmailCall {
+class AddCRMEmailCall {
   static Future<ApiCallResponse> call({
     String? email = '',
     String? category = 'updates',
@@ -110,7 +61,7 @@ class AddCrmEmailCall {
   "category": "${category}"
 }''';
     return ApiManager.instance.makeApiCall(
-      callName: 'add crm email',
+      callName: 'Add CRM Email',
       apiUrl: 'https://xn8h-jzwm-odfz.n7c.xano.io/api:JJxCCbQC/crmlist',
       callType: ApiCallType.POST,
       headers: {},

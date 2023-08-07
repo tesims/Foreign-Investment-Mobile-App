@@ -338,7 +338,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          'discover', context.mounted);
+                                          'routing', context.mounted);
                                     },
                                     text: 'Sign In',
                                     options: FFButtonOptions(
@@ -389,7 +389,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          'discover', context.mounted);
+                                          'routing', context.mounted);
                                     },
                                     text: 'Continue with Google',
                                     icon: FaIcon(

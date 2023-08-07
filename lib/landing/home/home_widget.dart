@@ -274,7 +274,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     return;
                                                   }
                                                   _model.apiResulty6k =
-                                                      await AddCrmEmailCall
+                                                      await AddCRMEmailCall
                                                           .call(
                                                     email: _model
                                                         .emailAddressController
@@ -400,7 +400,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 return;
                                               }
                                               _model.apiResult2iv =
-                                                  await AddCrmEmailCall.call(
+                                                  await AddCRMEmailCall.call(
                                                 email: _model
                                                     .emailAddressController
                                                     .text,

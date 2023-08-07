@@ -28,9 +28,9 @@ class HomeModel extends FlutterFlowModel {
     return null;
   }
 
-  // Stores action output result for [Backend Call - API (add crm email)] action in emailAddress widget.
+  // Stores action output result for [Backend Call - API (Add CRM Email)] action in emailAddress widget.
   ApiCallResponse? apiResulty6k;
-  // Stores action output result for [Backend Call - API (add crm email)] action in Button widget.
+  // Stores action output result for [Backend Call - API (Add CRM Email)] action in Button widget.
   ApiCallResponse? apiResult2iv;
 
   /// Initialization and disposal methods.

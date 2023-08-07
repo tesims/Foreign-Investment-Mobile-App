@@ -16,6 +16,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
+import 'backend/stripe/payment_manager.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
@@ -25,6 +27,8 @@ void main() async {
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
+
+  await initializeStripe();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,

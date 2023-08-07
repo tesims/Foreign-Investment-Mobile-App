@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? DiscoverWidget() : HomeWidget(),
+          appStateNotifier.loggedIn ? RoutingWidget() : HomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? DiscoverWidget() : HomeWidget(),
+              appStateNotifier.loggedIn ? RoutingWidget() : HomeWidget(),
         ),
         FFRoute(
           name: 'guides',
@@ -139,6 +139,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'support',
           path: '/help-center',
+          requireAuth: true,
           builder: (context, params) => SupportWidget(),
         ),
         FFRoute(
@@ -146,8 +147,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/my-account',
           requireAuth: true,
           builder: (context, params) => AccountWidget(),
+        ),
+        FFRoute(
+          name: 'routing',
+          path: '/welcome',
+          requireAuth: true,
+          builder: (context, params) => RoutingWidget(),
+        ),
+        FFRoute(
+          name: 'payment',
+          path: '/payment',
+          requireAuth: true,
+          builder: (context, params) => PaymentWidget(),
+        ),
+        FFRoute(
+          name: 'billing',
+          path: '/billing',
+          requireAuth: true,
+          builder: (context, params) => BillingWidget(),
+        ),
+        FFRoute(
+          name: 'companyProfile',
+          path: '/company-profile',
+          requireAuth: true,
+          builder: (context, params) => CompanyProfileWidget(
+            code: params.getParam('code', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

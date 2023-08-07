@@ -1,9 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/create_data_room_widget.dart';
+import '/components/notifications_alert_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -28,7 +31,7 @@ class SideNavWidget extends StatefulWidget {
         this.pageThreeColor = pageThreeColor ?? Colors.white,
         this.pageFourColor = pageFourColor ?? Colors.white,
         this.pageFiveColor = pageFiveColor ?? Colors.white,
-        this.userName = userName ?? 'user',
+        this.userName = userName ?? 'Welcome back!',
         this.userEmail = userEmail ?? 'user@email.com',
         this.userPicture = userPicture ??
             'https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
@@ -133,32 +136,58 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               ),
                           ],
                         ),
-                        badges.Badge(
-                          badgeContent: Text(
-                            '2',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
+                        Builder(
+                          builder: (context) => InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showAlignedDialog(
+                                context: context,
+                                isGlobal: true,
+                                avoidOverflow: false,
+                                targetAnchor: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                followerAnchor: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                builder: (dialogContext) {
+                                  return Material(
+                                    color: Colors.transparent,
+                                    child: NotificationsAlertWidget(),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
+                            },
+                            child: badges.Badge(
+                              badgeContent: Text(
+                                '2',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                    ),
+                              ),
+                              showBadge: true,
+                              shape: badges.BadgeShape.circle,
+                              badgeColor: FlutterFlowTheme.of(context).primary,
+                              elevation: 4.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 8.0, 8.0, 8.0),
+                              position: badges.BadgePosition.topEnd(),
+                              animationType: badges.BadgeAnimationType.scale,
+                              toAnimate: true,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 4.0, 0.0),
+                                child: Icon(
+                                  Icons.notifications,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
                                 ),
-                          ),
-                          showBadge: true,
-                          shape: badges.BadgeShape.circle,
-                          badgeColor: FlutterFlowTheme.of(context).primary,
-                          elevation: 4.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
-                          position: badges.BadgePosition.topEnd(),
-                          animationType: badges.BadgeAnimationType.scale,
-                          toAnimate: true,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 4.0, 0.0),
-                            child: Icon(
-                              Icons.notifications,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
+                              ),
                             ),
                           ),
                         ),
@@ -467,34 +496,50 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                       ),
                     ),
                   ),
-                  FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Create Data Room',
-                    icon: Icon(
-                      Icons.add,
-                      size: 15.0,
-                    ),
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: Colors.white,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: FlutterFlowTheme.of(context).primary,
-                              ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
-                        width: 1.0,
+                  Builder(
+                    builder: (context) => FFButtonWidget(
+                      onPressed: () async {
+                        await showAlignedDialog(
+                          context: context,
+                          isGlobal: true,
+                          avoidOverflow: false,
+                          targetAnchor: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          followerAnchor: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          builder: (dialogContext) {
+                            return Material(
+                              color: Colors.transparent,
+                              child: CreateDataRoomWidget(),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      text: 'Create Data Room',
+                      icon: Icon(
+                        Icons.add,
+                        size: 15.0,
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Colors.white,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
                   Expanded(

@@ -18,6 +18,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _authToken = prefs.getString('ff_authToken') ?? _authToken;
     });
+    _safeInit(() {
+      _favoriteCompany =
+          prefs.getBool('ff_favoriteCompany') ?? _favoriteCompany;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -32,6 +36,13 @@ class FFAppState extends ChangeNotifier {
   set authToken(String _value) {
     _authToken = _value;
     prefs.setString('ff_authToken', _value);
+  }
+
+  bool _favoriteCompany = false;
+  bool get favoriteCompany => _favoriteCompany;
+  set favoriteCompany(bool _value) {
+    _favoriteCompany = _value;
+    prefs.setBool('ff_favoriteCompany', _value);
   }
 }
 

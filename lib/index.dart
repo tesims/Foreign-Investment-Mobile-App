@@ -9,3 +9,8 @@ export '/onboard/login/login_widget.dart' show LoginWidget;
 export '/landing/home/home_widget.dart' show HomeWidget;
 export '/support/support/support_widget.dart' show SupportWidget;
 export '/pages/account/account_widget.dart' show AccountWidget;
+export '/onboard/routing/routing_widget.dart' show RoutingWidget;
+export '/payment/payment/payment_widget.dart' show PaymentWidget;
+export '/payment/billing/billing_widget.dart' show BillingWidget;
+export '/pages/company_profile/company_profile_widget.dart'
+    show CompanyProfileWidget;
